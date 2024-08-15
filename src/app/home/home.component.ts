@@ -16,11 +16,14 @@ export class HomeComponent {
 
   products: Product[] = [];
 
+  onProductOutput(product: Product) {
+    console.log(product, 'OUTPUT');
+  }
   ngOnInit() {
     this.productsService
       .getProducts('http://localhost:3000/clothes', { page: 0, perPage: 5 })
       .subscribe((products: Products) => {
-        console.log(products);
+        // console.log(products);
         this.products = products.items;
       });
   }
